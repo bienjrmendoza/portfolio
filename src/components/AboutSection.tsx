@@ -35,43 +35,31 @@ const AboutSection = ({
   id = "about",
   title = "About Me",
   subtitle = "Get to know me better",
-  bio = "I am a passionate developer with a strong foundation in web technologies and a keen eye for design. With several years of experience building modern web applications, I strive to create intuitive and performant user experiences that solve real-world problems.",
+  bio = "Dedicated web developer with 2 years of experience and a passion for programming. Excel in both collaborative environments and independent work, specializing in creating efficient, user-friendly solutions that meet client needs and drive project success.",
   experience = [
     {
-      title: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      period: "2020 - Present",
-      description:
-        "Leading the frontend development team, implementing modern React applications with a focus on performance and accessibility.",
-    },
-    {
       title: "Web Developer",
-      company: "Digital Solutions Ltd.",
-      period: "2018 - 2020",
+      company: "Bear Digital Non-Voices Outsourcing Services",
+      period: "2022 - Present",
       description:
-        "Developed responsive websites and web applications for various clients across different industries.",
-    },
+        "Developed a robust Laravel-based backend architecture, designed and implemented RESTful APIs, utilized Blade for dynamic UIs, integrated third-party APIs, collaborated with teams for efficiency, and provided client support."
+    }
   ],
   education = [
     {
-      degree: "Master of Computer Science",
-      institution: "Tech University",
-      year: "2018",
-    },
-    {
-      degree: "Bachelor of Science in Web Development",
-      institution: "Digital Arts College",
-      year: "2016",
-    },
+      degree: "Bachelor of Science in Information Technology",
+      institution: "Batangas State University - The National Engineering University",
+      year: "2022",
+    }
   ],
   interests = [
     "Web Development",
-    "UI/UX Design",
-    "Open Source",
-    "Photography",
-    "Hiking",
+    "App Development",
+    "API Development",
+    "Software Architecture",
+    "Database Management"
   ],
-  profileImage = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
+  profileImage = "https://bienmendoza.online/assets/images/profile.JPG",
 }: AboutSectionProps) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -110,7 +98,7 @@ const AboutSection = ({
   return (
     <section
       id={id}
-      className="py-20 px-4 md:px-8 bg-slate-50 dark:bg-slate-900 min-h-[600px] w-full"
+      className="py-10 px-4 md:px-8 bg-slate-50 dark:bg-slate-900 min-h-[600px] w-full"
     >
       <motion.div
         ref={ref}

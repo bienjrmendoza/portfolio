@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Progress } from "../components/ui/progress";
+// import { Progress } from "../components/ui/progress";
 import { Badge } from "../components/ui/badge";
 import {
   Tabs,
@@ -14,7 +14,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "../components/ui/tabs";
-import { Code, Cpu, Database, Globe, Palette, PenTool } from "lucide-react";
+import { Code, Cpu, Database, Globe, Palette, PenTool, Bug } from "lucide-react";
 
 interface SkillCardProps {
   icon: React.ReactNode;
@@ -51,10 +51,10 @@ const SkillCard = ({
         <CardContent className="p-4 pt-2">
           <div className="mb-4">
             <div className="flex justify-between mb-1">
-              <span className="text-sm font-medium">Proficiency</span>
-              <span className="text-sm font-medium">{level}%</span>
+              {/* <span className="text-sm font-medium">Proficiency</span> */}
+              {/* <span className="text-sm font-medium">{level}%</span> */}
             </div>
-            <Progress value={level} className="h-2" />
+            {/* <Progress value={level} className="h-2" /> */}
           </div>
 
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
@@ -104,7 +104,7 @@ const SkillsSection = ({
       level: 90,
       description:
         "Building modern, responsive user interfaces with React and its ecosystem.",
-      tags: ["React", "Redux", "Hooks", "Context API"],
+      tags: ["React", "Hooks"],
     },
     {
       icon: <Palette className="h-8 w-8 text-primary" />,
@@ -112,7 +112,7 @@ const SkillsSection = ({
       level: 85,
       description:
         "Creating beautiful UIs with modern CSS, animations, and styling libraries.",
-      tags: ["Tailwind CSS", "Styled Components", "SASS", "CSS Animations"],
+      tags: ["Bootstrap", "Tailwind CSS", "Styled Components"],
     },
     {
       icon: <Globe className="h-8 w-8 text-primary" />,
@@ -126,28 +126,28 @@ const SkillsSection = ({
 
   const backendSkills = [
     {
+      icon: <Globe className="h-8 w-8 text-primary" />,
+      title: "API Development",
+      level: 78,
+      description:
+        "Designing and implementing RESTful for web applications.",
+      tags: ["RESTful APIs", "SOAP API", "Laravel API", "API Security"],
+    },
+    {
       icon: <Database className="h-8 w-8 text-primary" />,
       title: "Databases",
       level: 80,
       description:
         "Working with various database systems to store and manage application data.",
-      tags: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
+      tags: ["MySQL", "Eloquent ORM", "Query Optimization"],
     },
     {
-      icon: <Cpu className="h-8 w-8 text-primary" />,
-      title: "Node.js",
+      icon: <Bug className="h-8 w-8 text-primary" />,
+      title: "Testing and Debugging",
       level: 82,
       description:
-        "Building scalable server-side applications with Node.js and Express.",
-      tags: ["Express", "REST APIs", "Authentication", "Middleware"],
-    },
-    {
-      icon: <Globe className="h-8 w-8 text-primary" />,
-      title: "API Development",
-      level: 78,
-      description:
-        "Designing and implementing RESTful and GraphQL APIs for web applications.",
-      tags: ["REST", "GraphQL", "API Security", "Documentation"],
+        "Ensures code reliability by identifying and fixing errors analyzing logs for potential issues.",
+      tags: ["Postman", "Logging", "Error Handling"],
     },
   ];
 
@@ -157,8 +157,8 @@ const SkillsSection = ({
       title: "UI/UX Design",
       level: 75,
       description:
-        "Creating user-centered designs with focus on usability and aesthetics.",
-      tags: ["Figma", "Adobe XD", "Wireframing", "Prototyping"],
+        "Reviewing and assessing UI/UX designs based on provided mockups.",
+      tags: ["Figma", "Adobe XD"],
     },
     {
       icon: <Code className="h-8 w-8 text-primary" />,
@@ -166,7 +166,7 @@ const SkillsSection = ({
       level: 85,
       description:
         "Managing code with Git and collaborating effectively with teams.",
-      tags: ["Git", "GitHub", "GitLab", "Branching Strategies"],
+      tags: ["Git", "GitHub", "Branching Strategies"],
     },
     {
       icon: <Cpu className="h-8 w-8 text-primary" />,
@@ -174,12 +174,12 @@ const SkillsSection = ({
       level: 70,
       description:
         "Basic knowledge of deployment, CI/CD pipelines, and cloud services.",
-      tags: ["Docker", "CI/CD", "AWS", "Netlify"],
+      tags: ["Docker", "CI/CD", "AWS", "Vercel"],
     },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="skills" className="py-10 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -193,14 +193,14 @@ const SkillsSection = ({
           </p>
         </motion.div>
 
-        <Tabs defaultValue="frontend" className="w-full">
+        <Tabs defaultValue="backend" className="w-full">
           <div className="flex justify-center mb-8">
             <TabsList>
-              <TabsTrigger value="frontend" className="text-sm md:text-base">
-                Frontend
-              </TabsTrigger>
               <TabsTrigger value="backend" className="text-sm md:text-base">
                 Backend
+              </TabsTrigger>
+              <TabsTrigger value="frontend" className="text-sm md:text-base">
+                Frontend
               </TabsTrigger>
               <TabsTrigger value="other" className="text-sm md:text-base">
                 Other Skills

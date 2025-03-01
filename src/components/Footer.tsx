@@ -15,12 +15,12 @@ interface FooterProps {
 }
 
 const Footer = ({
-  name = "John Doe",
+  name = "Bienvenido D. Mendoza Jr.",
   socialLinks = {
     github: "https://github.com",
     linkedin: "https://linkedin.com",
     twitter: "https://twitter.com",
-    email: "mailto:contact@example.com",
+    email: "mailto:bienvenidojr.mendoza@gmail.com",
   },
   copyrightYear = new Date().getFullYear(),
 }: FooterProps) => {

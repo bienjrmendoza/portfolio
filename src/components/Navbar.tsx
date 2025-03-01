@@ -13,7 +13,7 @@ const Navbar = ({
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
+    // { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ],
   resumeUrl = "/resume.pdf",
@@ -65,7 +65,7 @@ const Navbar = ({
           whileHover={{ scale: 1.05 }}
           className="text-2xl font-bold text-primary dark:text-primary-foreground"
         >
-          Portfolio
+          
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -91,12 +91,12 @@ const Navbar = ({
             {isDarkMode ? "Light" : "Dark"}
           </Button>
 
-          <Button asChild size="sm" className="flex items-center gap-2">
+          {/* <Button asChild size="sm" className="flex items-center gap-2">
             <a href={resumeUrl} download>
               <Download size={16} />
               Resume
             </a>
-          </Button>
+          </Button> */}
         </div>
 
         {/* Mobile Menu Button */}
@@ -138,7 +138,7 @@ const Navbar = ({
                 {section.label}
               </button>
             ))}
-            <Button
+            {/* <Button
               asChild
               size="sm"
               className="flex items-center gap-2 w-full justify-center mt-4"
@@ -147,7 +147,7 @@ const Navbar = ({
                 <Download size={16} className="mr-2" />
                 Download Resume
               </a>
-            </Button>
+            </Button> */}
           </div>
         </motion.div>
       )}

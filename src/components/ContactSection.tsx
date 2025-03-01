@@ -136,7 +136,7 @@ const ContactSection = ({
                   Feel free to reach out through any of these channels
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 pt-6">
                 <div className="flex items-center space-x-4">
                   <div className="bg-primary/10 p-3 rounded-full">
                     <svg
@@ -159,7 +159,7 @@ const ContactSection = ({
                       Email
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      contact@example.com
+                      bienvenidojr.mendoza@gmail.com
                     </p>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ const ContactSection = ({
                       Phone
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      +1 (555) 123-4567
+                      09566044079
                     </p>
                   </div>
                 </div>
@@ -219,12 +219,12 @@ const ContactSection = ({
                       Location
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      San Francisco, CA
+                      Batangas City, Batangas
                     </p>
                   </div>
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="pt-6">
                 <div className="flex space-x-4">
                   <a
                     href="https://github.com"
@@ -298,35 +298,37 @@ const ContactSection = ({
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      placeholder="Your name"
-                      {...register("name")}
-                      className={errors.name ? "border-red-500" : ""}
-                    />
-                    {errors.name && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.name.message}
-                      </p>
-                    )}
-                  </div>
+                  <div className="flex flex-wrap gap-4">
+                    <div className="w-1/3 min-w-[230px] space-y-2">
+                      <Label htmlFor="name">Name</Label>
+                      <Input
+                        id="name"
+                        placeholder="Your name"
+                        {...register("name")}
+                        className={errors.name ? "border-red-500" : ""}
+                      />
+                      {errors.name && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.name.message}
+                        </p>
+                      )}
+                    </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Your email address"
-                      {...register("email")}
-                      className={errors.email ? "border-red-500" : ""}
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.email.message}
-                      </p>
-                    )}
+                    <div className="w-1/3 min-w-[230px] space-y-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Your email address"
+                        {...register("email")}
+                        className={errors.email ? "border-red-500" : ""}
+                      />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1">
+                          {errors.email.message}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <div className="space-y-2">
@@ -349,7 +351,7 @@ const ContactSection = ({
                     <Textarea
                       id="message"
                       placeholder="Your message"
-                      rows={5}
+                      rows={2}
                       {...register("message")}
                       className={errors.message ? "border-red-500" : ""}
                     />

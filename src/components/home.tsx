@@ -51,9 +51,9 @@ const Home = () => {
         </section>
 
         {/* Projects section */}
-        <section id="projects">
+        {/* <section id="projects">
           <ProjectsSection />
-        </section>
+        </section> */}
 
         {/* Contact section */}
         <section id="contact">
@@ -113,6 +113,7 @@ const ScrollToTopButton = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        className="text-white-600 dark:text-black"
       >
         <path d="m18 15-6-6-6 6" />
       </svg>

@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import { Download, ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { Download, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 
 interface HeroSectionProps {
   name?: string;
@@ -17,14 +17,14 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({
-  name = "John Doe",
-  title = "Frontend Developer & UI/UX Designer",
+  name = "Bienvenido D. Mendoza Jr.",
+  title = "Web Developer",
   description = "I build accessible, responsive, and performant web applications with modern technologies that deliver exceptional user experiences.",
   imageUrl = "https://api.dicebear.com/7.x/avataaars/svg?seed=portfolio",
   resumeUrl = "#",
   socialLinks = {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "http://github.com/bienjrmendoza",
+    linkedin: "https://www.linkedin.com/in/bienvenido-jr-mendoza-52828824a/",
     twitter: "https://twitter.com",
   },
 }: HeroSectionProps) => {
@@ -46,7 +46,7 @@ const HeroSection = ({
               className="inline-block"
             >
               <span className="px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm">
-                Welcome to my portfolio
+                Welcome to my site!
               </span>
             </motion.div>
 
@@ -83,12 +83,12 @@ const HeroSection = ({
               transition={{ delay: 1, duration: 0.5 }}
               className="flex flex-wrap gap-4 pt-4"
             >
-              <Button asChild size="lg" className="rounded-full">
+              {/* <Button asChild size="lg" className="rounded-full">
                 <a href={resumeUrl} download>
                   <Download className="mr-2 h-5 w-5" />
                   Download Resume
                 </a>
-              </Button>
+              </Button> */}
 
               <Button
                 variant="outline"
@@ -96,8 +96,8 @@ const HeroSection = ({
                 className="rounded-full"
                 asChild
               >
-                <a href="#projects">
-                  View Projects
+                <a href="#contact">
+                  Contact Me
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -110,12 +110,12 @@ const HeroSection = ({
               className="flex items-center gap-4 pt-4"
             >
               <a
-                href={socialLinks.github}
+                href={socialLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary/20 transition-colors"
               >
-                <Github className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                <Mail className="h-5 w-5 text-gray-700 dark:text-gray-300" />
               </a>
               <a
                 href={socialLinks.linkedin}
@@ -126,12 +126,12 @@ const HeroSection = ({
                 <Linkedin className="h-5 w-5 text-gray-700 dark:text-gray-300" />
               </a>
               <a
-                href={socialLinks.twitter}
+                href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary/20 transition-colors"
               >
-                <Twitter className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                <Github className="h-5 w-5 text-gray-700 dark:text-gray-300" />
               </a>
             </motion.div>
           </motion.div>
