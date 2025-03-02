@@ -8,7 +8,6 @@ interface FooterProps {
   socialLinks?: {
     github?: string;
     linkedin?: string;
-    twitter?: string;
     email?: string;
   };
   copyrightYear?: number;
@@ -17,9 +16,8 @@ interface FooterProps {
 const Footer = ({
   name = "Bienvenido D. Mendoza Jr.",
   socialLinks = {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    github: "http://github.com/bienjrmendoza",
+    linkedin: "https://www.linkedin.com/in/bienvenido-jr-mendoza-52828824a/",
     email: "mailto:bienvenidojr.mendoza@gmail.com",
   },
   copyrightYear = new Date().getFullYear(),
@@ -62,19 +60,6 @@ const Footer = ({
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-            )}
-
-            {socialLinks.twitter && (
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href={socialLinks.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-5 w-5" />
                 </a>
               </Button>
             )}

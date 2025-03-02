@@ -12,7 +12,7 @@ interface HeroSectionProps {
   socialLinks?: {
     github?: string;
     linkedin?: string;
-    twitter?: string;
+    mail?: string;
   };
 }
 
@@ -20,12 +20,12 @@ const HeroSection = ({
   name = "Bienvenido D. Mendoza Jr.",
   title = "Web Developer",
   description = "I build accessible, responsive, and performant web applications with modern technologies that deliver exceptional user experiences.",
-  imageUrl = "https://api.dicebear.com/7.x/avataaars/svg?seed=portfolio",
+  imageUrl = "https://bienmendoza.online/storage/resume/main.JPG",
   resumeUrl = "#",
   socialLinks = {
     github: "http://github.com/bienjrmendoza",
     linkedin: "https://www.linkedin.com/in/bienvenido-jr-mendoza-52828824a/",
-    twitter: "https://twitter.com",
+    mail: "bienvenidojr.mendoza@gmail.com",
   },
 }: HeroSectionProps) => {
   return (
@@ -110,7 +110,7 @@ const HeroSection = ({
               className="flex items-center gap-4 pt-4"
             >
               <a
-                href={socialLinks.twitter}
+                href={`mailto:${socialLinks.mail}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary/20 transition-colors"
