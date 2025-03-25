@@ -1,123 +1,68 @@
-import React, { useEffect } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
-import Navbar from "./Navbar";
-import HeroSection from "./HeroSection";
-import AboutSection from "./AboutSection";
-import SkillsSection from "./SkillsSection";
-import ProjectsSection from "./ProjectsSection";
-import ContactSection from "./ContactSection";
-import Footer from "./Footer";
+import React, { useRef } from "react";
+import Header from "./layout/Header";
+import HeroSection from "./sections/HeroSection";
+import ProjectsSection from "./sections/ProjectsSection";
+import SkillsSection from "./sections/SkillsSection";
+import AboutSection from "./sections/AboutSection";
+import ContactSection from "./sections/ContactSection";
+import Footer from "./layout/Footer";
+import SeoHead from "./seo/SeoHead";
 
-const Home = () => {
-  // Smooth scrolling progress indicator
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+const Home: React.FC = () => {
+  const contactsRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to top on initial load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return (
-    <div className="relative bg-white dark:bg-gray-950 min-h-screen">
-      {/* Progress bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50"
-        style={{ scaleX, transformOrigin: "left" }}
-      />
-
-      {/* Navigation */}
-      <Navbar />
-
-      {/* Main content */}
-      <main>
-        {/* Hero section */}
-        <section id="home">
-          <HeroSection />
-        </section>
-
-        {/* About section */}
-        <section id="about">
-          <AboutSection />
-        </section>
-
-        {/* Skills section */}
-        <section id="skills">
-          <SkillsSection />
-        </section>
-
-        {/* Projects section */}
-        {/* <section id="projects">
-          <ProjectsSection />
-        </section> */}
-
-        {/* Contact section */}
-        <section id="contact">
-          <ContactSection />
-        </section>
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Scroll to top button */}
-      <ScrollToTopButton />
-    </div>
-  );
-};
-
-// Scroll to top button component
-const ScrollToTopButton = () => {
-  const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = React.useState(false);
-
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      setVisible(latest > 0.2);
-    });
-
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  const scrollToContacts = () => {
+    contactsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <motion.button
-      className="fixed bottom-8 right-8 p-3 rounded-full bg-primary text-white shadow-lg z-40"
-      onClick={scrollToTop}
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{
-        opacity: visible ? 1 : 0,
-        scale: visible ? 1 : 0.5,
-        y: visible ? 0 : 20,
-      }}
-      transition={{ duration: 0.3 }}
-      aria-label="Scroll to top"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-white-600 dark:text-black"
-      >
-        <path d="m18 15-6-6-6 6" />
-      </svg>
-    </motion.button>
+    <div className="min-h-screen bg-background">
+      {/* SEO Optimization */}
+      <SeoHead
+        title="Bienvenido D. Mendoza Jr. | Software Developer"
+        description="Professional portfolio of Bienvenido D. Mendoza Jr., a software developer specializing in Laravel, databases, and API development with competence with frontend."
+        keywords="backend developer, Laravel, API development, database design, full-stack developer"
+      />
+
+      {/* Navigation Header */}
+      <Header transparent={true} />
+
+      {/* Main Content */}
+      <main>
+        {/* Hero Section */}
+        <HeroSection
+          name="Bienvenido D. Mendoza Jr."
+          title="Software Developer"
+          description="Specialized in building robust, scalable backend systems and RESTful APIs with a focus on performance and security. Experienced with Node.js, Python, and database optimization."
+          onScrollToContacts={scrollToContacts}
+        />
+
+        {/* Projects Section */}
+        {/* <div ref={projectsRef}>
+          <ProjectsSection />
+        </div> */}
+        {/* About Section */}
+        <AboutSection />
+
+        {/* Skills Section */}
+        <SkillsSection />
+
+        {/* Contact Section */}
+        <div ref={contactsRef}>
+          <ContactSection />
+        </div>
+      </main>
+
+      {/* Footer */}
+      <Footer
+        name="Bienvenido D. Mendoza Jr."
+        // email="contact@johndoe.dev"
+        socialLinks={{
+          github: "https://github.com/bienjrmendoza/bienjrmendoza",
+          linkedin: "https://www.linkedin.com/in/bienvenido-jr-mendoza-52828824a/in/",
+        }}
+      />
+    </div>
   );
 };
 
