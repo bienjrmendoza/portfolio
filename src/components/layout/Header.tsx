@@ -105,20 +105,27 @@ const Header = ({ transparent = false }: HeaderProps) => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "md:hidden fixed inset-x-0 top-[70px] bg-background/95 backdrop-blur-sm shadow-sm transition-all duration-300 overflow-hidden",
+          "md:hidden fixed inset-x-0 top-[68px] bg-background/95 backdrop-blur-sm shadow-sm transition-all duration-300 overflow-hidden",
           isOpen ? "max-h-screen" : "max-h-0",
         )}
       >
         <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
+              onClick={() => {
+                const section = document.querySelector(link.href);
+                if (section) {
+                  const offset = 60; 
+                  const top = section.getBoundingClientRect().top + window.scrollY - offset;
+                  window.scrollTo({ top, behavior: "smooth" });
+                }
+                setIsOpen(false);
+              }}
               className="text-sm font-medium py-2 hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </a>
+            </button>
           ))}
 
           <Button

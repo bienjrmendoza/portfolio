@@ -257,7 +257,7 @@ const SkillCard = ({ skill }: SkillCardProps) => {
   return (
     <Card className="overflow-hidden h-full transition-all hover:shadow-lg">
       <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             {skill.icon}
             <h3 className="font-medium text-lg">{skill.name}</h3>
