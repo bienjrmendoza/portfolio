@@ -26,7 +26,7 @@ interface AboutSectionProps {
 const AboutSection = ({
   title = "About Me",
   subtitle = "Software Engineer | Backend Developer",
-  bio = "I'm a web developer passionate about building efficient and user-friendly applications. I love solving problems, optimizing workflows, and working both independently and collaborative environments. My goal is to create seamless digital experiences that make an impact.",
+  bio = "I'm a software developer passionate about building efficient and user-friendly applications. I love solving problems, optimizing workflows, and working both independently and collaborative environments. My goal is to create seamless digital experiences that make an impact.",
   education = [
     {
       degree: "Bachelor of Science in Information Technology - Major in Business Analytics",

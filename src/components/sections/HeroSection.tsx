@@ -24,7 +24,7 @@ interface HeroSectionProps {
 const HeroSection = ({
   name = "Bienvenido D. Mendoza Jr.",
   title = "Software Developer",
-  description = "Specialized in building robust, scalable backend systems and RESTful APIs with a focus on performance and security. Experienced with Node.js, Python, and database optimization.",
+  description = "I'm a software developer who designs and builds web applications to help businesses streamline their operations and improve efficiency. I specialize in creating user-friendly solutions that simplify complex processes.",
   imageUrl = "/profile.jpg",
   socialLinks = {
     github: "https://github.com/bienjrmendoza",
