@@ -14,7 +14,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id = "contact" }) => {
   return (
     <section
       id={id}
-      className="py-16 px-4 md:px-8 lg:px-16 bg-slate-50 dark:bg-slate-900"
+      className="py-5 px-4 md:px-8 lg:px-16 bg-slate-50 dark:bg-slate-900"
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">

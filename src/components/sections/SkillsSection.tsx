@@ -114,7 +114,7 @@ const SkillsSection = ({
   };
 
   return (
-    <section id="skills" className="py-20 bg-slate-50 dark:bg-slate-900">
+    <section id="skills" className="py-5 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">{title}</h2>

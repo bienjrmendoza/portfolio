@@ -67,7 +67,9 @@ const Header = ({ transparent = false }: HeaderProps) => {
               onClick={() => {
                 const section = document.querySelector(link.href);
                 if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
+                  const offset = 60; 
+                  const top = section.getBoundingClientRect().top + window.scrollY - offset;
+                  window.scrollTo({ top, behavior: "smooth" });
                 }
               }}
               className="text-sm font-medium hover:text-primary transition-colors"
@@ -103,7 +105,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "md:hidden fixed inset-x-0 top-[72px] bg-background/95 backdrop-blur-sm shadow-sm transition-all duration-300 overflow-hidden",
+          "md:hidden fixed inset-x-0 top-[70px] bg-background/95 backdrop-blur-sm shadow-sm transition-all duration-300 overflow-hidden",
           isOpen ? "max-h-screen" : "max-h-0",
         )}
       >
