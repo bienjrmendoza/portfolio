@@ -1,16 +1,60 @@
-import React from "react";
+import { useState, useEffect } from 'react';
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Card, CardContent } from "../ui/card";
 import { Separator } from "../ui/separator";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ContactSectionProps {
   id?: string;
 }
 
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 const ContactSection: React.FC<ContactSectionProps> = ({ id = "contact" }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormData>();
+
+  const [showModal, setShowModal] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalMessage, setModalMessage] = useState('');
+
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => setShowModal(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showModal]);
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      await axios.post('https://bienmendoza.online/api/contact', data);
+      reset();
+      setModalTitle('Success');
+      setModalMessage('Message has been sent!');
+      setShowModal(true);
+    } catch (error) {
+      setModalTitle('Failed');
+      setModalMessage('Failed to send message. Please try again.');
+      setShowModal(true);
+    }
+  };
+
   return (
     <section
       id={id}
@@ -31,7 +75,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id = "contact" }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <Card className="p-6 shadow-md bg-white dark:bg-slate-800">
             <CardContent className="p-0">
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="space-y-2">
                   <label
                     htmlFor="name"
@@ -39,7 +83,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id = "contact" }) => {
                   >
                     Name
                   </label>
-                  <Input id="name" placeholder="Your name" className="w-full dark:border dark:border-gray-600" />
+                  <Input id="name" {...register('name', { required: 'Name is required' })} placeholder="Your name" className="w-full dark:border dark:border-gray-600" />
+                  {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -52,9 +97,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id = "contact" }) => {
                   <Input
                     id="email"
                     type="email"
+                    {...register('email', { required: 'Email is required', pattern: { value: /[^@\s]+@[^@\s]+\.[^@\s]+/, message: 'Invalid email address' } })}
                     placeholder="your.email@example.com"
                     className="w-full dark:border dark:border-gray-600"
                   />
+                  {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -66,9 +113,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id = "contact" }) => {
                   </label>
                   <Input
                     id="subject"
-                    placeholder="What is this regarding?"
+                    {...register('subject', { required: 'Subject is required' })}
+                    placeholder="What is this your message about?"
                     className="w-full dark:border dark:border-gray-600"
                   />
+                  {errors.subject && <p className="text-red-500 text-sm">{errors.subject.message}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -80,17 +129,49 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id = "contact" }) => {
                   </label>
                   <Textarea
                     id="message"
+                    {...register('message', { required: 'Message is required' })}
                     placeholder="Your message here..."
                     className="w-full min-h-[150px] dark:border dark:border-gray-600"
                   />
+                  {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
                 </div>
 
-                <Button type="submit" className="w-full">
-                  Send Message
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>
           </Card>
+
+          <AnimatePresence>
+            {showModal && (
+              <motion.div
+                className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <motion.div
+                  className="bg-white rounded-lg shadow-lg w-96 p-6"
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -50, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h2 className="text-xl font-semibold mb-4">{modalTitle}</h2>
+                  <p className="text-gray-600 mb-4">{modalMessage}</p>
+                  <div className="flex justify-end space-x-2">
+                    <button
+                      onClick={() => setShowModal(false)}
+                      className="px-4 py-2 bg-gray-300 rounded-md"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <div className="space-y-8">
             <div>
