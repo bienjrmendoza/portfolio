@@ -54,12 +54,12 @@ const AboutSection = ({
     },
   ],
   interests = [
-    "Distributed Systems",
-    "API Design",
-    "Database Optimization",
-    "Cloud Architecture",
-    "Open Source Contributing",
-    "Technical Writing",
+    "Backend Development",
+    "API Design & Integration",
+    "Database Management",
+    "Cloud & DevOps",
+    "Software Security",
+    "Scalable System Architecture",
   ],
 }: AboutSectionProps) => {
   return (

@@ -93,10 +93,9 @@ const SkillsSection = ({
 }: SkillsSectionProps) => {
   const [activeTab, setActiveTab] = useState("all");
 
-  const filteredSkills = skills.filter((skill) => {
-    if (activeTab === "all") return true;
-    return skill.category === activeTab;
-  });
+  const filteredSkills = skills.filter(skill => 
+    activeTab === "all" || skill.category === activeTab
+  );
 
   const container = {
     hidden: { opacity: 0 },
@@ -167,6 +166,7 @@ const SkillsSection = ({
           <TabsContent value="all" className="mt-0">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              key={filteredSkills.length}
               variants={container}
               initial="hidden"
               whileInView="show"
@@ -183,6 +183,7 @@ const SkillsSection = ({
           <TabsContent value="backend" className="mt-0">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              key={filteredSkills.length}
               variants={container}
               initial="hidden"
               whileInView="show"
@@ -199,6 +200,7 @@ const SkillsSection = ({
           <TabsContent value="frontend" className="mt-0">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              key={filteredSkills.length}
               variants={container}
               initial="hidden"
               whileInView="show"
@@ -215,6 +217,7 @@ const SkillsSection = ({
           <TabsContent value="database" className="mt-0">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              key={filteredSkills.length}
               variants={container}
               initial="hidden"
               whileInView="show"
@@ -231,6 +234,7 @@ const SkillsSection = ({
           <TabsContent value="other" className="mt-0">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              key={filteredSkills.length}
               variants={container}
               initial="hidden"
               whileInView="show"
