@@ -12,7 +12,11 @@ const Home: React.FC = () => {
   const contactsRef = useRef<HTMLDivElement>(null);
 
   const scrollToContacts = () => {
-    contactsRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (contactsRef.current) {
+      const offset = 60;
+      const top = contactsRef.current.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   return (

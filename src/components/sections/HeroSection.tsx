@@ -7,6 +7,7 @@ import {
   MailIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Typing from "react-typing-effect";
 
 interface HeroSectionProps {
   name?: string;
@@ -33,6 +34,14 @@ const HeroSection = ({
   },
   onScrollToContacts = () => console.log("Scroll to projects"),
 }: HeroSectionProps) => {
+  const Name = () => {
+    return (
+      <span className="text-blue-600">
+        <Typing text={["Bien", "a Developer"]} speed={100} eraseSpeed={50} eraseDelay={2000} typingDelay={500} loop={true} />
+      </span>
+    );
+  };
+  
   return (
     <section className="w-full min-h-[700px] bg-slate-50 flex items-center justify-center py-16 px-4 md:px-8 lg:px-16 dark:bg-slate-900">
       <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -43,7 +52,7 @@ const HeroSection = ({
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 dark:text-white">
-            Hi, I'm <span className="text-blue-600">{name}</span>
+            Hi, I'm <Name />
           </h1>
           <h2 className="text-xl md:text-2xl font-medium text-slate-700 mb-6 dark:text-white">
             {title}

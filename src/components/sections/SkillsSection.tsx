@@ -258,27 +258,39 @@ interface SkillCardProps {
 }
 
 const SkillCard = ({ skill }: SkillCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <Card className="overflow-hidden h-full transition-all hover:shadow-lg">
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {skill.icon}
-            <h3 className="font-medium text-lg">{skill.name}</h3>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.05 }}
+      className="h-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Card className="overflow-hidden h-full transition-all hover:shadow-lg">
+        <CardContent className="p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {skill.icon}
+              <h3 className="font-medium text-lg">{skill.name}</h3>
+            </div>
+            <Badge variant="outline" className="capitalize">
+              {skill.category}
+            </Badge>
           </div>
-          <Badge variant="outline" className="capitalize">
-            {skill.category}
-          </Badge>
-        </div>
-        {/* <div className="space-y-2">
-          <div className="flex justify-between text-sm">
-            <span>Proficiency</span>
-            <span>{skill.level}%</span>
-          </div>
-          <Progress value={skill.level} className="h-2" />
-        </div> */}
-      </CardContent>
-    </Card>
+          {/* <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span>Proficiency</span>
+              <span>{skill.level}%</span>
+            </div>
+            <Progress value={skill.level} className="h-2" />
+          </div> */}
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 
