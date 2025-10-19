@@ -54,7 +54,7 @@ const Header = ({ transparent = false }: HeaderProps) => {
           <div className="flex flex-col">
             <span className="font-bold text-lg">Bienvenido D. Mendoza Jr.</span>
             <span className="text-xs text-muted-foreground">
-              Software Developer
+              Software Engineer
             </span>
           </div>
         </Link>

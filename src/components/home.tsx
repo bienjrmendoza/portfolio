@@ -23,8 +23,8 @@ const Home: React.FC = () => {
     <div className="min-h-screen bg-background">
       {/* SEO Optimization */}
       <SeoHead
-        title="Bienvenido D. Mendoza Jr. | Software Developer"
-        description="Professional portfolio of Bienvenido D. Mendoza Jr., a software developer specializing in Laravel, databases, and API development with competence with frontend."
+        title="Bienvenido D. Mendoza Jr. | Software Engineer"
+        description="Professional portfolio of Bienvenido D. Mendoza Jr., a software Engineer specializing in Laravel, databases, and API development with competence with frontend."
         keywords="backend developer, Laravel, API development, database design, full-stack developer"
       />
 
@@ -36,8 +36,8 @@ const Home: React.FC = () => {
         {/* Hero Section */}
         <HeroSection
           name="Bienvenido D. Mendoza Jr."
-          title="Software Developer"
-          description="I'm a software developer who designs and builds web applications to help businesses streamline their operations and improve efficiency. I specialize in creating user-friendly solutions that simplify complex processes."
+          title="Software Engineer"
+          description="I'm a software engineer who designs and builds web applications to help businesses streamline their operations and improve efficiency. I specialize in creating user-friendly solutions that simplify complex processes."
           onScrollToContacts={scrollToContacts}
         />
 

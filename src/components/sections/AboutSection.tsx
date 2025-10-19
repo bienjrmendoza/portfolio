@@ -26,7 +26,7 @@ interface AboutSectionProps {
 const AboutSection = ({
   title = "About Me",
   subtitle = "Software Engineer | Backend Developer",
-  bio = "I'm a software developer passionate about building efficient and user-friendly applications. I love solving problems, optimizing workflows, and working both independently and collaborative environments. My goal is to create seamless digital experiences that make an impact.",
+  bio = "I'm a software engineer passionate about building efficient and user-friendly applications. I love solving problems, optimizing workflows, and working both independently and collaborative environments. My goal is to create seamless digital experiences that make an impact.",
   education = [
     {
       degree: "Bachelor of Science in Information Technology - Major in Business Analytics",
@@ -37,9 +37,17 @@ const AboutSection = ({
   ],
   experience = [
     {
+      position: "Software Engineer",
+      company: "Bear Digital Non-Voices Outsourcing Services",
+      duration: "2025-Present",
+      description:
+        "Led the design, development, and maintenance of internal and external systems, ensuring alignment with business goals while providing technical leadership and support across the organization.",
+      technologies: ["Laravel", "Bootstrap", "PHP", "jQuery", "MySQL", "MariaDB"],
+    },
+    {
       position: "Web Developer",
       company: "Bear Digital Non-Voices Outsourcing Services",
-      duration: "2018-2020",
+      duration: "2022-2025",
       description:
         "Developed a robust Laravel-based backend architecture, designed and implemented RESTful APIs, utilized Blade for dynamic UIs, integrated third-party APIs, collaborated with teams for efficiency, and provided client support.",
       technologies: ["Laravel", "React", "Bootstrap", "jQuery", "MySQL", "AWS"],
@@ -47,7 +55,7 @@ const AboutSection = ({
     {
       position: "Web Developer (Intern)",
       company: "AghimJuanPH",
-      duration: "2017-2018",
+      duration: "2022-2022",
       description:
         "Developed a marketplace platform, handling both frontend and backend development to create user-friendly interfaces, implement backend logic, and optimize performance.",
       technologies: ["Laravel", "HTML", "CSS", "JavaScript", "MySQL"],

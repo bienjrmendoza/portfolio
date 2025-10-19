@@ -40,6 +40,12 @@ const SkillsSection = ({
       icon: <Database size={20} />,
     },
     {
+      name: "MariaDB",
+      level: 85,
+      category: "database",
+      icon: <Database size={20} />,
+    },
+    {
       name: "React",
       level: 75,
       category: "frontend",

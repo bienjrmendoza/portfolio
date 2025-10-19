@@ -24,8 +24,8 @@ interface HeroSectionProps {
 
 const HeroSection = ({
   name = "Bienvenido D. Mendoza Jr.",
-  title = "Software Developer",
-  description = "I'm a software developer who designs and builds web applications to help businesses streamline their operations and improve efficiency. I specialize in creating user-friendly solutions that simplify complex processes.",
+  title = "Software Engineer",
+  description = "I'm a software engineer who designs and builds web applications to help businesses streamline their operations and improve efficiency. I specialize in creating user-friendly solutions that simplify complex processes.",
   imageUrl = "/profile.jpg",
   socialLinks = {
     github: "https://github.com/bienjrmendoza",
@@ -37,7 +37,7 @@ const HeroSection = ({
   const Name = () => {
     return (
       <span className="text-blue-600">
-        <Typing text={["Bien", "a Developer"]} speed={100} eraseSpeed={50} eraseDelay={2000} typingDelay={500} loop={true} />
+        <Typing text={["Bien", "a software engineer"]} speed={100} eraseSpeed={50} eraseDelay={2000} typingDelay={500} loop={true} />
       </span>
     );
   };
